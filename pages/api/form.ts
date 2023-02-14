@@ -1,7 +1,8 @@
+import { NextApiRequest ,NextApiResponse} from 'next';
 import { Configuration, OpenAIApi } from 'openai';
+import jimp from 'jimp';
 
-
-export default async function handler(req, res) {
+export default async function handler(req : NextApiRequest, res: NextApiResponse) {
   const configuration = new Configuration({
     apiKey: process.env.OPENAI_SECRET,
   });
@@ -20,7 +21,7 @@ export default async function handler(req, res) {
       top_p: 1,
       frequency_penalty: 0,
       presence_penalty: 0,
-      max_tokens: 256,
+      max_tokens: 1000,
     });
     const images = await openai.createImage({
       prompt:imagePrompt,

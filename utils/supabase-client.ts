@@ -4,12 +4,14 @@ import {
 } from '@supabase/auth-helpers-nextjs';
 import { ProductWithPrice } from 'types';
 import type { Database } from 'types_db';
+import { stripe } from './stripe';
 
 export const supabase = createBrowserSupabaseClient<Database>();
 
 export const getActiveProductsWithPrices = async (): Promise<
   ProductWithPrice[]
 > => {
+
   const { data, error } = await supabase
     .from('products')
     .select('*, prices(*)')

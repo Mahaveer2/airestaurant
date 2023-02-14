@@ -77,9 +77,8 @@ export default function Pricing({ products }: Props) {
             Create professional restaurant images.
           </p>
           <span className='w-full flex justify-center mt-10'>
-          <button onClick={() => alert("Wait for some time")} className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 bg-gray-900 rounded-lg hover:bg-gray-800 focus:shadow-outline focus:outline-none w-[200px]">
-Create now
-</button>
+          <Button variant="slim"
+                    type="button" onClick={() => router.push("/create")}>Get Started</Button>
           </span>
           <div className="relative self-center mt-6  rounded-lg p-0.5 flex sm:mt-8  font-semibold">
             <span>Subscriptions</span>

@@ -15,7 +15,7 @@ const Result = ({desc,images}) => {
         </div>
         <p>{desc}</p>
         <div className='grid md:grid-cols-2 mt-4 grid-cols-1 gap-5'>
-          {images.map(img => {
+          {images?.map(img => {
             return <img className='rounded-lg' src={img.url} alt="Product Image" />
           })}
         </div>

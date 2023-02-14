@@ -34,8 +34,8 @@ const Navbar = () => {
                 <a className={s.link}>Account</a>
               </Link>
             </nav>
-            <nav className={`flex flex-col h-[100vh] w-full absolute top-0 left-0 bg-black text-4xl justify-center gap-5 transition lg:hidden ${toggle ? "visible" :"hidden"}`}>
-            <a onClick={() => setToggle(t => !t)} className="absolute text-[20px] top-5 right-6 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <div className={`flex flex-col h-[100vh] w-[100%] p-10 fixed top-0 left-0 bg-black text-4xl justify-center gap-5 transition lg:hidden ${toggle ? "visible" :"hidden"}`}>
+            <a onClick={() => setToggle(t => !t)} className="absolute text-[20px] top-6 right-6 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
 </svg>
 </a>
@@ -45,7 +45,7 @@ const Navbar = () => {
               <Link href="/account">
                 <a className={s.link}>Account</a>
               </Link>
-            </nav>
+            </div>
           </div>
 
           <div className="flex flex-1 justify-end space-x-8">

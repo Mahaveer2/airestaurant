@@ -11,12 +11,13 @@ export default function PricingPage({ products }: Props) {
   return <Pricing products={products} />;
 }
 
-export async function getServerSideProps(): Promise<GetServerSideProps<Props>> {
+export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
   const products = await getActiveProductsWithPrices();
 
   return {
     props: {
       products
     },
+    revalidate: 60
   };
 }

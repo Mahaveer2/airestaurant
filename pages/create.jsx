@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import Input from '@/components/ui/Input/Input';
 import LoadingDots from 'components/ui/LoadingDots';
 import Button from '@/components/ui/Button/Button';
+import { useUser } from 'utils/useUser';
 import Result from '../components/result/Result';
 
 const create = () => {
   const [data,setData] = useState([]);
   const [isData,setISDATA] = useState(false);
+  const { isLoading, subscription, userDetails } = useUser();
   const [loading,setLoading] = useState(false);
+
   const handleSubmit = async (event) => {
     setLoading(true);
-    // Stop the form from submitting and refreshing the page.
     event.preventDefault();
 
     // Get data from the form.
@@ -50,8 +52,9 @@ const create = () => {
   };
   return (
     <div className="flex w-full justify-center items-center flex-col mb-10">
-      {loading ? <LoadingDots/> : <>
-      {isData ? <div><Result desc={data.description} images={data.images} /></div>: <form onSubmit={e => handleSubmit(e)} className="w-[90%] md:w-[80%] mx-auto mt-5">
+      
+        {loading ? <LoadingDots/> : <>
+      {isData ? <div><Result subscribed={subscription ? true : false} desc={data.description} images={data.images} /></div>: <form onSubmit={e => handleSubmit(e)} className="w-[90%] md:w-[80%] mx-auto mt-5">
       <h1 className="text-4xl my-4">Create</h1>
         <div className="w-full flex justify-between gap-3 md:flex-row flex-col">
           <div className="w-full">

@@ -45,7 +45,6 @@ const create = () => {
     const response = await fetch(endpoint, options);
     const result = await response.json();
     setData(result.data);
-    console.log(result.data)
     setLoading(false);
     setISDATA(true);
   };
